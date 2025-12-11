@@ -25,6 +25,6 @@ spec:
         image: nginx:latest
       tolerations:
       - key : "project"
-        operator : equal
+        operator : Equal
         vaue : "roboshop"
         effect : "NoSchedule"
