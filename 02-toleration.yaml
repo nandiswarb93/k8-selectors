@@ -26,5 +26,5 @@ spec:
       tolerations:
       - key : "project"
         operator : Equal
-        vaue : "roboshop"
+        value : "roboshop"
         effect : "NoSchedule"
