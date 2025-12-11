@@ -1,11 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: taints-toleration
+  name: taints-tolerations
   labels:
     purpose: tolerations-demo
     project: roboshop
 spec:
+
   replicas: 1
   selector:
     matchLabels:
@@ -17,6 +18,8 @@ spec:
         purpose: tolerations-demo
         project: roboshop
     spec:
+      nodeSelector : 
+        kubernetes.io/hostname : ip-192-168-0-56.ec2.internal
       containers:
       - name: nginx
         image: nginx:latest
