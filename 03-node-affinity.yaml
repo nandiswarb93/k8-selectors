@@ -1,19 +1,18 @@
 apiVersion: v1
-kind : Pod
-metadata: 
-  name : nginx
+kind: Pod
+metadata:
+  name: nginx
 spec:
-  affinity : 
-    nodeAffinity : 
+  affinity:
+    nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms : 
+        nodeSelectorTerms:
         - matchExpressions:
-          - key : disktype
-            operator : In
-            values : 
+          - key: topology.kubernetes.io/zone
+            operator: In
+            values:
             - us-east-1f
   containers:
-  - name : nginx
+  - name: nginx
     image: nginx
-    imagePullPolicy : Always
-
+    imagePullPolicy: Always
