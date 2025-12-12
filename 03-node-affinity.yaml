@@ -5,6 +5,7 @@ metadata:
 spec:
   affinity:
     nodeAffinity:
+    #hard rule
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
@@ -16,6 +17,16 @@ spec:
             operator: In
             values:
             - ssd
+    #soft rule
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight : 1
+      preference : 
+        matchExpressions:
+        - key : labels-1
+          operator: In
+          values:
+          - key-1
+          
   containers:
   - name: nginx
     image: nginx
