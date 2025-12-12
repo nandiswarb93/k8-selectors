@@ -12,10 +12,9 @@ spec:
             operator: In
             values:
             - us-east-1f
-        - matchExpressions :
           - key: disktype
-            operator : In
-            values : 
+            operator: In
+            values:
             - ssd
   containers:
   - name: nginx
