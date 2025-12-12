@@ -5,7 +5,7 @@ metadata:
 spec:
   affinity:
     nodeAffinity:
-    #hard rule
+      # hard rule
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
@@ -13,26 +13,23 @@ spec:
             operator: In
             values:
             - us-east-1f
-          # - key: disktype
-          #   operator: In
-          #   values:
-          #   - ssd
-    #soft rule
-    preferredDuringSchedulingIgnoredDuringExecution:
-    - weight : 100
-      preference : 
-        matchExpressions:
-        - key : labels-1
-          operator: In
-          values:
-          - roboshop
-    - weight : 10
-      preference : 
-        matchExpressions:
-        - key : labels-1
-          operator: In
-          values:
-          - amazon
+
+      # soft rule
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        preference:
+          matchExpressions:
+          - key: labels-1
+            operator: In
+            values:
+            - roboshop
+      - weight: 10
+        preference:
+          matchExpressions:
+          - key: labels-1
+            operator: In
+            values:
+            - amazon
 
   containers:
   - name: nginx
